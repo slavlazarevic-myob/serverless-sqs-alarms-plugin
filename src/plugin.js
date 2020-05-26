@@ -15,8 +15,12 @@ class Alarm {
 
   formatAlarmName (value) {
     // Cloud Watch alarms must be alphanumeric only
-    let queue = this.queue.replace(/[^0-9a-z]/gi, '')
-    return util.format(queue + 'MessageAlarm%s', value)
+    try {
+      let queue = this.queue.replace(/[^0-9a-z]/gi, '')
+      return util.format(queue + 'MessageAlarm%s', value)
+    } catch (e) {
+      return 'MessageAlarmSQS';
+    }
   }
 
   resolveTreatMissingData (index) {
