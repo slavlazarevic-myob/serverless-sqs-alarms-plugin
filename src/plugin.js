@@ -69,6 +69,7 @@ class Alarm {
               Statistic: 'Sum',
               Period: properties.period || 60,
               EvaluationPeriods: properties.evaluationPeriods || 1,
+              DatapointsToAlarm: properties.datapointsToAlarm || properties.evaluationPeriods || 1,
               Threshold: properties.value,
               ComparisonOperator: 'GreaterThanOrEqualToThreshold',
               AlarmActions: [
